@@ -1,31 +1,14 @@
-/**
- * 这个缓存的名称要注意，要有唯一的前缀，否则删除的时候
- * 可能把同域名下其他项目的cache删除
- */
 var CONTENT_CACHE_VERSION = 'content_v1.0.5';
 
-importScripts('/pwa-example/src/scripts/log.js');
-
-/**
- * service worker正在安装的时候，创建缓存
- */
 this.addEventListener('install', (eve) => {
     log.info(`oninstall event: CONTENT_CACHE_VERSION=${CONTENT_CACHE_VERSION}`);
-
-    //确保Service Worker 不会在 waitUntil() 里面的代码执行完毕之前安装完成
+    
     eve.waitUntil(
-        // 创建一个叫CONTENT_CACHE_VERSION 的新的缓存
         caches.open(CONTENT_CACHE_VERSION)
         .then((cache) => {
             return cache.addAll(
-                // 想缓存的资源的列表
                 [
-                    '/pwa-example/index.html',
-                    '/pwa-example/source/cnodejs.svg',
-
-                    '/pwa-example/src/scripts/app.js',
-                    '/pwa-example/src/styles/style.css',
-                    '/pwa-example/src/lib/zepto.min.js'
+                    '/index.html',
                 ]
             )
         })
@@ -35,9 +18,6 @@ this.addEventListener('install', (eve) => {
     )
 });
 
-/**
- * service worker激活的时候，删除旧版本的缓存
- */
 this.addEventListener('activate', (eve) => {
     log.info(`onactivate event:`, eve);
 
@@ -78,20 +58,12 @@ this.addEventListener('sync', function(eve){
     log.info(`onsync event:`, eve);
 });
 
-/**
- * fetch的时候打印access日志
- */
 this.addEventListener('fetch', (eve) => {
     let req = eve.request;
 
     log.access(req.method, req.url);
 });
 
-/**
- * 处理网络请求，有两种策略：
- *    1. 缓存优先：优先查看缓存中是否有请求的资源，如果有则使用缓存的资源，没有再去请求服务器
- *    2. 网络优先：优先去请求服务器上的资源，然后缓存以便offline的时候使用
- */
 this.addEventListener('fetch', (eve) => {
     let req = eve.request;
     let url = req.url;

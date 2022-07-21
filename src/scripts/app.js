@@ -11,7 +11,7 @@
 
     function registerServiceWorker(){
         if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('/pwa-example/service-worker.js', {scope: '/pwa-example/'})
+            navigator.serviceWorker.register('./service-worker.js')
                 .then((reg) => {
                     console.log(`Service Worker注册成功, scope: ${reg.scope}`);
                     // console.log(reg);

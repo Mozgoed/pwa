@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>js13kGames A-Frame entries</title>
-	<meta name="description" content="A list of A-Frame entries submitted to the js13kGames 2017 competition, used as an example for the MDN articles about Progressive Web Apps.">
-	<meta name="author" content="end3r">
-	<meta name="theme-color" content="#B12A34">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:image" content="icons/icon-512.png">
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="style.css">
-	<link rel="manifest" href="js13kpwa.webmanifest">
-	<script src="data/games.js" defer></script>
-	<script src="app.js" defer></script>
-</head>
-<body>
-<header>
-	<p><a class="logo" href="http://js13kgames.com"><img src="img/js13kgames.png" alt="js13kGames"></a></p>
-</header>
-<main>
-	<h1>js13kGames A-Frame entries</h1>
-	<p class="description">List of games submitted to the <a href="http://js13kgames.com/aframe">A-Frame category</a> in the <a href="http://2017.js13kgames.com">js13kGames 2017</a> competition. You can <a href="https://github.com/mdn/pwa-examples/blob/master/js13kpwa">fork js13kPWA on GitHub</a> to check its source code.</p>
-	<button id="notifications">Request dummy notifications</button>
-	<section id="content"></section>
-</main>
-<footer>
-	<p>&copy; js13kGames 2012-2018, created and maintained by <a href="http://end3r.com">Andrzej Mazur</a> from <a href="http://enclavegames.com">Enclave Games</a>.</p>
-</footer>
-</body>
+<html>
+    <head>
+        <title>pwa-example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/pwa-example/src/styles/style.css" rel="stylesheet">
+        <link rel="manifest" href="manifest.json">
+        <!-- Add to home screen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Weather PWA">
+        <link rel="apple-touch-icon" href="/pwa-example/source/icons/homescreen192.png">
+
+        <!-- Windows tiles icon-->
+        <meta name="msapplication-TileImage" content="/pwa-example/source/icons/homescreen144.png">
+        <meta name="msapplication-TileColor" content="#2F3BA2">
+    </head>
+    <body>
+        <header>
+            <h1>CNodeJS Topics</h1>
+        </header>
+        <main>
+            <div class="img-con">
+                <img src="/pwa-example/source/cnodejs.svg" alt="github">
+            </div>
+            
+            <div id="result">
+                <ul id="list" class="price-items">
+                </ul>
+            </div>
+        </main>
+        <!--<script src="./app.js"></script>-->
+        <script src="/pwa-example/src/lib/zepto.min.js"></script>
+        <!--<script src="/pwa-example/src/scripts/log.js"></script>-->
+        <script src="/pwa-example/src/scripts/app.js"></script>
+    </body>
 </html>

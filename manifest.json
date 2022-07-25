@@ -1,6 +1,6 @@
 {
-    "short_name": "Газпромбанк",
-    "name": "Газпромбанк",
+    "short_name": "Приложение",
+    "name": "Приложение",
     "icons": [
         {
             "src": "./source/icons/icon-maskable.svg",
